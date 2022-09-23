@@ -35,11 +35,14 @@ export default function Home({ accounts }) {
     };
   }, []);
   return (
-    <div className="w-full h-screen flex " >
+    <div className="w-full h-screen flex ">
       {/* menu on snmall screen */}
       <span
         className="h-[50px] bg-white px-4 absolute md:hidden flex items-center"
-        onClick={() => setToggle(!toggle)}
+        onClick={() => {
+          setToggle(!toggle);
+          setSearching(false);
+        }}
       >
         <FaAlignLeft className="text-gray-800" />
       </span>
@@ -64,7 +67,6 @@ export default function Home({ accounts }) {
     </div>
   );
 }
-
 
 export async function getStaticProps() {
   const req = await fetch(
