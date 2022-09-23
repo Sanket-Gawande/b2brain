@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const SearchResult = ({ data }) => {
@@ -43,9 +44,11 @@ const SearchResult = ({ data }) => {
               )}
               <span className="w-max ml-4 flex flex-col justify-center PY-3">
                 <h5 className="text-md font-semibold">{item?.company}</h5>
-                <a className="text-xs text-slate-400" href="/">
-                  {item?.website}
-                </a>
+                <Link href="/">
+                  <a className="text-xs text-slate-400" >
+                    {item?.website}
+                  </a>
+                </Link>
               </span>
               <button className=" text-primary border border-primary  w-max space-x-1 items-center flex ml-auto px-2 text-xs h-max py-1">
                 <span

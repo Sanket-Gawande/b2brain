@@ -11,9 +11,10 @@ const Sidebar = ({ setToggle }) => {
   return (
     <>
       {/*  overlay onm small screen */}
-      <div onClick={() => setToggle(false)} className="bg-black/50 z-10 fixed md:hidden inset-0 top-[50px] backdrop-blur-sm backdrop-filter">
-
-      </div>
+      <div
+        onClick={() => setToggle(false)}
+        className="bg-black/50 z-10 fixed md:hidden inset-0 top-[50px] backdrop-blur-sm backdrop-filter"
+      ></div>
 
       <div className="shadow-2xl bg-white md:w-max  w-[60%] z-20 h-full px-4 fixed md:relative top-[50px] md:top-0">
         {/* logo */}
@@ -39,11 +40,12 @@ const Sidebar = ({ setToggle }) => {
               label: "Leads",
               tag: "4 unseen",
             },
-          ].map(({ link, icon, label, tag }) => (
-            <Link href={link}>
+          ].map(({ link, icon, label, tag }, index) => (
+            <Link href={link} key={index}>
               <a
-                className={`flex items-center my-4 w-full ${path === link ? "font-semibold" : ""
-                  }`}
+                className={`flex items-center my-4 w-full ${
+                  path === link ? "font-semibold" : ""
+                }`}
               >
                 <Image src={icon} width="18px" height="18px" />{" "}
                 <span className="ml-3 text-[16px] ">{label}</span>
@@ -79,13 +81,19 @@ const Sidebar = ({ setToggle }) => {
 
             <ul className="pl-6 ml-2 pb-2 mb-2 text-sm font-light text-black/90 space-y-3 border-l-[1.5px]">
               <li>
-                <a href="/">Manage all</a>
+                <Link href="/">
+                  <a>Manage all</a>
+                </Link>
               </li>
               <li className="">
-                <a href="/">Track new accounts</a>
+                <Link href="/">
+                  <a>Track new accounts</a>
+                </Link>
               </li>
               <li>
-                <a href="/">Bulk import</a>
+                <Link href="/">
+                  <a>Bulk import</a>
+                </Link>
               </li>
             </ul>
           </details>
@@ -112,35 +120,44 @@ const Sidebar = ({ setToggle }) => {
 
             <ul className="pl-6 ml-2 mt-2 py-2 text-sm font-light text-black/90 space-y-3 border-l-[1.5px]">
               <li>
-                <a href="/">Product focus</a>
+                <Link href="/">
+                  <a>Product focus</a>
+                </Link>
               </li>
               <li>
-                <a href="/">Intel Preferences</a>
+                <Link href="/">
+                  <a>Intel Preferences</a>
+                </Link>
               </li>
               <li>
-                <a href="/">Load persona</a>
+                <Link href="/">
+                  <a>Load persona</a>
+                </Link>
               </li>
             </ul>
           </details>
           {[
-            { link: "/integration", icon: "/icons/integration.svg", label: "Integrations" },
+            {
+              link: "/integration",
+              icon: "/icons/integration.svg",
+              label: "Integrations",
+            },
             {
               link: "/support",
               icon: "/icons/team.svg",
               label: "Team",
-
             },
             {
               link: "/help",
               icon: "/icons/support.svg",
               label: "Help / Support",
-
             },
-          ].map(({ link, icon, label, tag }) => (
-            <Link href={link}>
+          ].map(({ link, icon, label, tag } , index) => (
+            <Link href={link} key={index}>
               <a
-                className={`flex items-center my-4 w-full ${path === link ? "font-semibold" : ""
-                  }`}
+                className={`flex items-center my-4 w-full ${
+                  path === link ? "font-semibold" : ""
+                }`}
               >
                 <Image src={icon} width="18px" height="18px" />{" "}
                 <span className="ml-3 text-[16px] ">{label}</span>
